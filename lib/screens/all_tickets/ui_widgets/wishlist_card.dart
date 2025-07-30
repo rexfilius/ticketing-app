@@ -43,30 +43,42 @@ class _WishlistCardState extends ConsumerState<WishlistCard> {
           ),
           SizedBox(height: 12),
           Align(alignment: Alignment.centerLeft, child: Text('Quantity')),
-          Row(
-            children: [
-              IconButton(
-                onPressed: () {
-                  setState(() {
-                    ticket.quantity += 1;
-                  });
-                },
-                icon: Icon(Icons.add),
+          SizedBox(height: 8),
+          Align(
+            alignment: Alignment.centerLeft,
+            child: Container(
+              width: 120,
+              height: 40,
+              decoration: BoxDecoration(
+                border: Border.all(),
+                borderRadius: BorderRadius.all(Radius.circular(12)),
               ),
-              Text("${ticket.quantity}"),
-              IconButton(
-                onPressed: () {
-                  if (ticket.quantity == 1) {
-                    return;
-                  } else {
-                    setState(() {
-                      ticket.quantity -= 1;
-                    });
-                  }
-                },
-                icon: Icon(Icons.remove),
+              child: Row(
+                children: [
+                  IconButton(
+                    onPressed: () {
+                      setState(() {
+                        ticket.quantity += 1;
+                      });
+                    },
+                    icon: Icon(Icons.add),
+                  ),
+                  Text("${ticket.quantity}"),
+                  IconButton(
+                    onPressed: () {
+                      if (ticket.quantity == 1) {
+                        return;
+                      } else {
+                        setState(() {
+                          ticket.quantity -= 1;
+                        });
+                      }
+                    },
+                    icon: Icon(Icons.remove),
+                  ),
+                ],
               ),
-            ],
+            ),
           ),
         ],
       ),
