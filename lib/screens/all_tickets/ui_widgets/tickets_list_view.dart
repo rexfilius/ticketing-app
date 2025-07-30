@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:ticketing_app/routes/routes.dart';
 import 'package:ticketing_app/screens/all_tickets/models/ticket_model.dart';
+import 'package:ticketing_app/screens/all_tickets/notifier/all_tickets_notifier.dart';
 
 class TicketsListView extends ConsumerStatefulWidget {
   const TicketsListView({super.key});
@@ -32,6 +33,7 @@ class _TicketsListViewState extends ConsumerState<TicketsListView> {
               item.isChecked = checked!;
             });
             if (item.isChecked) {
+              ref.read(inMemoryTicketProvider.notifier).state = item;
               context.push(RouteNest.addWishlist);
             }
           },

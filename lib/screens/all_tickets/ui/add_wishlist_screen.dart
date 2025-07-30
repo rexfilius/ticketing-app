@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:ticketing_app/screens/all_tickets/notifier/all_tickets_notifier.dart';
 import 'package:ticketing_app/screens/all_tickets/ui_widgets/location_dropdown.dart';
 import 'package:ticketing_app/screens/all_tickets/ui_widgets/tickets_dropdown.dart';
+import 'package:ticketing_app/screens/all_tickets/ui_widgets/wishlist_card.dart';
+import 'package:ticketing_app/screens/wishlist/notifier/wishlist_notifier.dart';
 import 'package:ticketing_app/utils/custom_app_bar.dart';
 
 class AddWishlistScreen extends ConsumerStatefulWidget {
@@ -15,6 +18,8 @@ class AddWishlistScreen extends ConsumerStatefulWidget {
 class _AddWishlistScreenState extends ConsumerState<AddWishlistScreen> {
   @override
   Widget build(BuildContext context) {
+    final ticket = ref.watch(inMemoryTicketProvider);
+    //
     return Scaffold(
       appBar: CustomAppBar(
         title: 'Add Tickets to Wishlist',
@@ -32,6 +37,7 @@ class _AddWishlistScreenState extends ConsumerState<AddWishlistScreen> {
             TicketsDropdown(),
             SizedBox(height: 12),
             Text('Selected Tickets'),
+            WishlistCard(),
           ],
         ),
       ),
@@ -44,7 +50,12 @@ class _AddWishlistScreenState extends ConsumerState<AddWishlistScreen> {
             foregroundColor: Colors.white,
             shape: RoundedRectangleBorder(),
           ),
-          onPressed: () {},
+          onPressed: () {
+            ref.read(wishlistProvider.notifier).addToWishlist(ticket);
+            ScaffoldMessenger.of(
+              context,
+            ).showSnackBar(SnackBar(content: Text('Added to Wishlist')));
+          },
           child: Text(
             'Add to Wishlist',
             style: TextStyle(fontWeight: FontWeight.w700),
