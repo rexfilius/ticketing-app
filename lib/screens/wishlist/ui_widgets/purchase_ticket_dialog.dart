@@ -1,13 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:ticketing_app/screens/all_tickets/models/ticket_wishlist.dart';
+import 'package:ticketing_app/screens/wishlist/model/ticket_wish.dart';
 import 'package:ticketing_app/screens/wishlist/notifier/wishlist_notifier.dart';
 
 class PurchaseTicketDialog extends ConsumerWidget {
-  const PurchaseTicketDialog({super.key, required this.ticket});
+  const PurchaseTicketDialog({
+    super.key,
+    required this.ticket,
+    required this.onClickYes,
+  });
 
   final TicketWish ticket;
+  final VoidCallback onClickYes;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -39,6 +44,7 @@ class PurchaseTicketDialog extends ConsumerWidget {
                       backgroundColor: Colors.green,
                     ),
                     onPressed: () {
+                      onClickYes();
                       ref
                           .read(wishlistProvider.notifier)
                           .addToPurchasedList(context, ticket);

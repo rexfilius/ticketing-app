@@ -9,7 +9,7 @@ class TicketWish {
   final String eventDate;
   final String ticketRef;
   final int qtyAvailable;
-  final bool purchased;
+  bool purchased;
   int quantity;
 
   TicketWish({
@@ -24,6 +24,18 @@ class TicketWish {
     required this.purchased,
     required this.quantity,
   });
+
+  TicketWish.empty()
+    : artist = '',
+      ticketPrice = 0,
+      duration = '',
+      location = '',
+      locationHex = '',
+      eventDate = '',
+      ticketRef = '',
+      qtyAvailable = 0,
+      purchased = false,
+      quantity = 0;
 }
 
 TicketWish modelDtoToWishDto(TicketModel model) {

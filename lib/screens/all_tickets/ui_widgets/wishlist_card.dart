@@ -12,7 +12,7 @@ class WishlistCard extends ConsumerStatefulWidget {
 class _WishlistCardState extends ConsumerState<WishlistCard> {
   @override
   Widget build(BuildContext context) {
-    final ticket = ref.watch(inMemoryTicketProvider);
+    final ticket = ref.watch(inMemoryTicketModelProvider);
     return Container(
       padding: EdgeInsets.all(12.0),
       decoration: BoxDecoration(

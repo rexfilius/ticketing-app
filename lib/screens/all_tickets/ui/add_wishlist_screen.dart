@@ -18,7 +18,7 @@ class AddWishlistScreen extends ConsumerStatefulWidget {
 class _AddWishlistScreenState extends ConsumerState<AddWishlistScreen> {
   @override
   Widget build(BuildContext context) {
-    final ticket = ref.watch(inMemoryTicketProvider);
+    final ticketModel = ref.watch(inMemoryTicketModelProvider);
     //
     return Scaffold(
       appBar: CustomAppBar(
@@ -54,7 +54,9 @@ class _AddWishlistScreenState extends ConsumerState<AddWishlistScreen> {
             shape: RoundedRectangleBorder(),
           ),
           onPressed: () {
-            ref.read(wishlistProvider.notifier).addToWishlist(context, ticket);
+            ref
+                .read(wishlistProvider.notifier)
+                .addToWishlist(context, ticketModel);
           },
           child: Text(
             'Add to Wishlist',

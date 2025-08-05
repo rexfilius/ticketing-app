@@ -21,7 +21,7 @@ class _TicketsListViewState extends ConsumerState<TicketsListView> {
   void _onCheckboxChanged(TicketModel item, bool? checked) {
     setState(() => item.isChecked = checked!);
     if (item.isChecked) {
-      ref.read(inMemoryTicketProvider.notifier).state = item;
+      ref.read(inMemoryTicketModelProvider.notifier).state = item;
       context.push(RouteNest.addWishlist);
     }
   }
@@ -67,6 +67,7 @@ class _TicketsListViewState extends ConsumerState<TicketsListView> {
         ),
         Expanded(
           child: ListView.builder(
+            physics: const BouncingScrollPhysics(),
             itemCount: visibleTickets.length,
             itemBuilder: (context, index) {
               final item = visibleTickets[index];

@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 import 'package:ticketing_app/screens/all_tickets/models/ticket_model.dart';
-import 'package:ticketing_app/screens/all_tickets/models/ticket_wishlist.dart';
+import 'package:ticketing_app/screens/wishlist/model/ticket_wish.dart';
 
 class WishlistState extends Equatable {
   final List<TicketModel> modelList;

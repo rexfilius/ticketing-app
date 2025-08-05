@@ -41,6 +41,7 @@ class _HorizontalDatePickerState extends State<HorizontalDatePicker> {
     final theme = Theme.of(context);
 
     return ListView.builder(
+      physics: const BouncingScrollPhysics(),
       scrollDirection: Axis.horizontal,
       padding: const EdgeInsets.symmetric(horizontal: 16),
       itemCount: widget.days,

@@ -61,6 +61,7 @@ class _WishlistScreenState extends ConsumerState<WishlistScreen> {
                     child: Text("No ticket has been added to your wishlist"),
                   )
                 : ListView.builder(
+                    physics: const BouncingScrollPhysics(),
                     itemCount: wishlistState.wishlist.length,
                     itemBuilder: (context, index) {
                       final item = wishlistState.wishlist[index];
