@@ -36,7 +36,10 @@ class _AddWishlistScreenState extends ConsumerState<AddWishlistScreen> {
             Text('Item'),
             TicketsDropdown(),
             SizedBox(height: 12),
-            Text('Selected Tickets'),
+            Text(
+              'Selected Tickets',
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+            ),
             WishlistCard(),
           ],
         ),
@@ -51,10 +54,7 @@ class _AddWishlistScreenState extends ConsumerState<AddWishlistScreen> {
             shape: RoundedRectangleBorder(),
           ),
           onPressed: () {
-            ref.read(wishlistProvider.notifier).addToWishlist(ticket);
-            ScaffoldMessenger.of(
-              context,
-            ).showSnackBar(SnackBar(content: Text('Added to Wishlist')));
+            ref.read(wishlistProvider.notifier).addToWishlist(context, ticket);
           },
           child: Text(
             'Add to Wishlist',

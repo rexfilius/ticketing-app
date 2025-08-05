@@ -26,11 +26,11 @@ class _WishlistCardState extends ConsumerState<WishlistCard> {
             children: [
               Text(
                 ticket.artist,
-                style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16),
+                style: TextStyle(fontWeight: FontWeight.w700, fontSize: 16),
               ),
               Text(
                 "${ticket.ticketPrice}",
-                style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16),
+                style: TextStyle(fontWeight: FontWeight.w700, fontSize: 16),
               ),
             ],
           ),
