@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:ticketing_app/data/fetch_tickets_api.dart';
 import 'package:ticketing_app/screens/all_tickets/ui_widgets/location_dropdown.dart';
 import 'package:ticketing_app/screens/all_tickets/ui_widgets/tickets_dropdown.dart';
 import 'package:ticketing_app/screens/all_tickets/ui_widgets/tickets_list_view.dart';
