@@ -32,7 +32,6 @@ class _WishlistScreenState extends ConsumerState<WishlistScreen> {
               ),
             ),
           ),
-
           SizedBox(
             height: 140,
             child: HorizontalDatePicker(
@@ -57,14 +56,14 @@ class _WishlistScreenState extends ConsumerState<WishlistScreen> {
             child: Text('07 Jan 2024'),
           ),
           Expanded(
-            child: wishlistState.list.isEmpty
+            child: wishlistState.wishlist.isEmpty
                 ? Center(
                     child: Text("No ticket has been added to your wishlist"),
                   )
                 : ListView.builder(
-                    itemCount: wishlistState.list.length,
+                    itemCount: wishlistState.wishlist.length,
                     itemBuilder: (context, index) {
-                      final item = wishlistState.list[index];
+                      final item = wishlistState.wishlist[index];
                       return WishlistItem(ticket: item);
                     },
                   ),
