@@ -51,6 +51,22 @@ class TicketModel {
       purchased: json['purchased'],
     );
   }
+
+  @override
+  String toString() => {
+    "Object": "TicketModel",
+    "artist": artist,
+    "ticketPrice": ticketPrice,
+    "duration": duration,
+    "location": location,
+    "locationHex": locationHex,
+    "eventDate": eventDate,
+    "ticketRef": ticketRef,
+    "qtyAvailable": qtyAvailable,
+    "purchased": purchased,
+    "isChecked": isChecked,
+    "quantity": quantity,
+  }.toString();
 }
 
 List<TicketModel> tickets = [

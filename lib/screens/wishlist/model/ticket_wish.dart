@@ -36,6 +36,21 @@ class TicketWish {
       qtyAvailable = 0,
       purchased = false,
       quantity = 0;
+
+  @override
+  String toString() => {
+    "Object": "TicketWish",
+    "artist": artist,
+    "ticketPrice": ticketPrice,
+    "duration": duration,
+    "location": location,
+    "locationHex": locationHex,
+    "eventDate": eventDate,
+    "ticketRef": ticketRef,
+    "qtyAvailable": qtyAvailable,
+    "purchased": purchased,
+    "quantity": quantity,
+  }.toString();
 }
 
 TicketWish modelDtoToWishDto(TicketModel model) {
