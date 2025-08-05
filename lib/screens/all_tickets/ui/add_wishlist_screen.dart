@@ -53,11 +53,9 @@ class _AddWishlistScreenState extends ConsumerState<AddWishlistScreen> {
             foregroundColor: Colors.white,
             shape: RoundedRectangleBorder(),
           ),
-          onPressed: () {
-            ref
-                .read(wishlistProvider.notifier)
-                .addToWishlist(context, ticketModel);
-          },
+          onPressed: () => ref
+              .read(wishlistProvider.notifier)
+              .addToWishlist(context, ticketModel),
           child: Text(
             'Add to Wishlist',
             style: TextStyle(fontWeight: FontWeight.w700),

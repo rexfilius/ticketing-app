@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:ticketing_app/screens/wishlist/model/ticket_wish.dart';
+import 'package:ticketing_app/screens/wishlist/ui_widgets/purchase_success_dialog.dart';
 import 'package:ticketing_app/screens/wishlist/ui_widgets/purchase_ticket_dialog.dart';
 
 class WishlistItem extends ConsumerStatefulWidget {
@@ -75,6 +76,17 @@ class _WishlistItemState extends ConsumerState<WishlistItem> {
                               setState(() {
                                 widget.ticket.purchased = true;
                               });
+                              showModalBottomSheet(
+                                context: context,
+                                backgroundColor: Colors.white,
+                                isDismissible: false,
+                                isScrollControlled: true,
+                                builder: (context) {
+                                  return PurchaseSuccessDialog(
+                                    ticket: widget.ticket,
+                                  );
+                                },
+                              );
                             },
                           ),
                         );

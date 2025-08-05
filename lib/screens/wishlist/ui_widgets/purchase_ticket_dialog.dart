@@ -44,11 +44,11 @@ class PurchaseTicketDialog extends ConsumerWidget {
                       backgroundColor: Colors.green,
                     ),
                     onPressed: () {
-                      onClickYes();
                       ref
                           .read(wishlistProvider.notifier)
                           .addToPurchasedList(context, ticket);
                       context.pop();
+                      onClickYes();
                     },
                     child: const Text('Yes'),
                   ),

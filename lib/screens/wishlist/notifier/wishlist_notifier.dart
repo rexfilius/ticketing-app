@@ -4,10 +4,6 @@ import 'package:ticketing_app/screens/wishlist/model/ticket_wish.dart';
 import 'package:ticketing_app/screens/wishlist/model/wishlist_state.dart';
 import 'package:flutter/material.dart';
 
-final inMemoryTicketWishProvider = StateProvider<TicketWish>((ref) {
-  return TicketWish.empty();
-});
-
 final wishlistProvider = NotifierProvider<WishlistNotifier, WishlistState>(
   WishlistNotifier.new,
 );
