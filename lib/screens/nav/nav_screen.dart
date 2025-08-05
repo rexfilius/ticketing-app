@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:ticketing_app/screens/nav/nav_destination.dart';
 
@@ -22,7 +23,7 @@ class _NavScreenState extends ConsumerState<NavScreen> {
         onDestinationSelected: widget.navigationShell.goBranch,
         destinations: navDestinations.map((destination) {
           return NavigationDestination(
-            icon: Icon(destination.icon),
+            icon: SvgPicture.asset(destination.logoPath),
             label: destination.label,
           );
         }).toList(),
