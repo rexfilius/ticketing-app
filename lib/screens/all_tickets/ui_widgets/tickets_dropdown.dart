@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:ticketing_app/screens/all_tickets/ui_widgets/location_dropdown.dart';
 
-List<String> _ticketsItems = ['item 1', 'item 2', 'item 3', 'item 4'];
+List<String> _ticketsItems = ['Ticket 1', 'Ticket 2', 'Ticket 3', 'Ticket 4'];
 
 class TicketsDropdown extends ConsumerStatefulWidget {
   const TicketsDropdown({super.key});
@@ -13,16 +13,17 @@ class TicketsDropdown extends ConsumerStatefulWidget {
 }
 
 class _TicketsDropdownState extends ConsumerState<TicketsDropdown> {
-  String selectedItem = _ticketsItems.first;
+  String? selectedItem;
   @override
   Widget build(BuildContext context) {
     return DropdownButtonFormField<String>(
+      hint: const Text('Select Ticket'),
       isExpanded: true,
       value: selectedItem,
       icon: Icon(Icons.expand_more),
       onChanged: (String? item) {
         setState(() {
-          selectedItem = item!;
+          selectedItem = item;
         });
       },
       items: _ticketsItems.map<DropdownMenuItem<String>>((String value) {

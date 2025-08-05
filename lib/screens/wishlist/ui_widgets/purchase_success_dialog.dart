@@ -10,7 +10,6 @@ class PurchaseSuccessDialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print("TICKET $ticket");
     return SafeArea(
       child: SizedBox(
         height: 300,

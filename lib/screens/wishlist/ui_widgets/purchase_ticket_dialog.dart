@@ -34,6 +34,13 @@ class PurchaseTicketDialog extends ConsumerWidget {
                 Expanded(
                   child: OutlinedButton(
                     onPressed: () => context.pop(),
+                    style: OutlinedButton.styleFrom(
+                      backgroundColor: Colors.white,
+                      foregroundColor: Colors.black,
+                      shape: const RoundedRectangleBorder(
+                        borderRadius: BorderRadius.zero,
+                      ),
+                    ),
                     child: const Text('Cancel'),
                   ),
                 ),
@@ -42,6 +49,10 @@ class PurchaseTicketDialog extends ConsumerWidget {
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.green,
+                      foregroundColor: Colors.white,
+                      shape: const RoundedRectangleBorder(
+                        borderRadius: BorderRadius.zero,
+                      ),
                     ),
                     onPressed: () {
                       ref
