@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:ticketing_app/screens/wishlist/notifier/wishlist_notifier.dart';
+import 'package:ticketing_app/screens/wishlist/ui_widgets/horizontal_date_picker.dart';
+import 'package:ticketing_app/screens/wishlist/ui_widgets/wishlist_item.dart';
+import 'package:ticketing_app/screens/wishlist/ui_widgets/wishlist_search.dart';
 import 'package:ticketing_app/utils/custom_app_bar.dart';
 
 class WishlistScreen extends ConsumerStatefulWidget {
@@ -18,7 +21,26 @@ class _WishlistScreenState extends ConsumerState<WishlistScreen> {
       appBar: CustomAppBar(title: 'Tickets', subtitle: 'See all tickets'),
       body: Column(
         children: [
-          SizedBox(height: 50),
+          WishlistSearch(),
+          Align(
+            alignment: Alignment.centerLeft,
+            child: Padding(
+              padding: const EdgeInsets.only(left: 16.0, bottom: 8.0),
+              child: Text(
+                "Jan 2024",
+                style: TextStyle(fontWeight: FontWeight.w700, fontSize: 22),
+              ),
+            ),
+          ),
+
+          SizedBox(
+            height: 140,
+            child: HorizontalDatePicker(
+              startDate: DateTime.now().subtract(const Duration(days: 2)),
+              days: 10,
+              onDateSelected: (date) => debugPrint('Picked $date'),
+            ),
+          ),
           ElevatedButton(
             style: ElevatedButton.styleFrom(
               minimumSize: Size(double.infinity, 50),
@@ -35,13 +57,17 @@ class _WishlistScreenState extends ConsumerState<WishlistScreen> {
             child: Text('07 Jan 2024'),
           ),
           Expanded(
-            child: ListView.builder(
-              itemCount: wishlistState.list.length,
-              itemBuilder: (context, index) {
-                final item = wishlistState.list[index];
-                return Text(item.artist);
-              },
-            ),
+            child: wishlistState.list.isEmpty
+                ? Center(
+                    child: Text("No ticket has been added to your wishlist"),
+                  )
+                : ListView.builder(
+                    itemCount: wishlistState.list.length,
+                    itemBuilder: (context, index) {
+                      final item = wishlistState.list[index];
+                      return WishlistItem(ticket: item);
+                    },
+                  ),
           ),
         ],
       ),
